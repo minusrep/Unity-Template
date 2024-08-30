@@ -2,6 +2,6 @@
 {
     public interface ILocator<T> 
     {
-        T Get<U>() where U : T;
+        U Get<U>() where U : T;
     }
 }

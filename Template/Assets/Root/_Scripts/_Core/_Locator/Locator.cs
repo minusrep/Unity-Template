@@ -12,13 +12,21 @@ namespace Root._Core._Locator
             _elements = new Dictionary<Type, T>();
         }
 
-        public T Get<U>() where U : T
+        public U Get<U>() where U : T 
         {
             var key = typeof(U);
 
             if (!_elements.ContainsKey(key)) throw new KeyNotFoundException($"{key.Name} not founded");
 
-            return _elements[key];
+            return (U) _elements[key];
+        }
+        public virtual U Register<U>(U element) where U : T
+        {
+            var key = typeof(U);
+
+            _elements[key] = element;
+
+            return (U) _elements[key];
         }
     }
 }
