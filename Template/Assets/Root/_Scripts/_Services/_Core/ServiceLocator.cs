@@ -4,6 +4,5 @@ namespace Root._Services._Core
 {
     public class ServiceLocator : Locator<IService>
     {
-
     }
 }

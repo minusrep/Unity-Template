@@ -9,11 +9,8 @@ namespace Root._Core
     {
         private static Bootstrap _instance;
 
-        private Game _game;
-
         private IEnumerator Start()
             => Init();
-
 
         private IEnumerator Init()
         {
@@ -23,15 +20,15 @@ namespace Root._Core
 
             var serviceLocator = new ServiceLocator();
 
-            var sceneLoader = serviceLocator.Register<ISceneLoader>(new SceneLoader());
+           var sceneLoader = InitSceneLoader(serviceLocator);
 
             yield return sceneLoader.LoadSceneAsync(SceneType.Bootstrap);
 
-            _game = new Game();
+            var game = new Game();
 
-            _game.Init(serviceLocator);
+            game.Init(serviceLocator);
 
-            yield return _game.Run();
+            yield return game.Run();
         }
 
         private bool CreateSingleton()
@@ -48,6 +45,17 @@ namespace Root._Core
             DontDestroyOnLoad(gameObject);
 
             return true;
+        }
+
+        private ISceneLoader InitSceneLoader(ServiceLocator serviceLocator)
+        {
+            var sceneLoader = new SceneLoader();
+
+            sceneLoader.Init(serviceLocator);
+
+            serviceLocator.Register<ISceneLoader>(sceneLoader);
+
+            return sceneLoader;
         }
     }
 }
