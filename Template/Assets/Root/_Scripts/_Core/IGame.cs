@@ -1,9 +1,10 @@
-﻿using Root._Services._Core;
+﻿using Root._Core._Locator;
+using Root._Services._Core;
 
 namespace Root._Core
 {
     public interface IGame
     {
-        ServiceLocator ServiceLocator { get; }
+        ILocator<IService> ServiceLocator { get; }
     }
 }

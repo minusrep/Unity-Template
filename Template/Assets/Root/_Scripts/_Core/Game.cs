@@ -1,4 +1,5 @@
-﻿using Root._Services._Core;
+﻿using Root._Core._Locator;
+using Root._Services._Core;
 using Root._Services._SceneLoader;
 using System.Collections;
 
@@ -10,9 +11,9 @@ namespace Root._Core
         
         private static Game _instance { get; set; }
 
-        public ServiceLocator ServiceLocator { get; private set; }
+        public ILocator<IService> ServiceLocator { get; private set; }
 
-        public void Init(ServiceLocator serviceLocator)
+        public void Init(ILocator<IService> serviceLocator)
         {
             _instance = this;
 

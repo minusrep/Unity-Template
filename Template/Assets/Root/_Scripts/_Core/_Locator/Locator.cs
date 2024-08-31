@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Root._Core._Locator
 {
-    public abstract class Locator<T> : ILocator<T>
+    public class Locator<T> : ILocator<T>
     {
         protected Dictionary<Type, T> _elements;
 

@@ -1,3 +1,4 @@
+using Root._Core._Locator;
 using Root._Services._Core;
 using Root._Services._SceneLoader;
 using System.Collections;
@@ -18,7 +19,7 @@ namespace Root._Core
 
             if (singletonExists) yield break;
 
-            var serviceLocator = new ServiceLocator();
+            var serviceLocator = new Locator<IService>();
 
            var sceneLoader = InitSceneLoader(serviceLocator);
 
@@ -47,7 +48,7 @@ namespace Root._Core
             return true;
         }
 
-        private ISceneLoader InitSceneLoader(ServiceLocator serviceLocator)
+        private ISceneLoader InitSceneLoader(Locator<IService> serviceLocator)
         {
             var sceneLoader = new SceneLoader();
 
