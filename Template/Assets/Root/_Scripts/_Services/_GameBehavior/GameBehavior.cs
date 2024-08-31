@@ -12,5 +12,8 @@ namespace Root._Services._GameBehavior
 
         public T Create<T>(T prefab) where T : MonoBehaviour 
             => Instantiate(prefab);
+
+        public void Static(GameObject prefab)
+            => DontDestroyOnLoad(prefab);
     }
 }

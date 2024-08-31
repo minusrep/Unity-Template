@@ -1,4 +1,5 @@
-﻿using UnityEngine.UIElements;
+﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Root._UI._Elements._ProgressBar
 {
@@ -8,7 +9,10 @@ namespace Root._UI._Elements._ProgressBar
         {
             get => _fill.style.width.value.value;
 
-            set => _fill.style.width = Length.Percent(value);
+            set 
+            {
+                _fill.style.width = Length.Percent(value * 100);
+            } 
         }
 
         protected const string ProgressBarFill = "progress-bar-fill";

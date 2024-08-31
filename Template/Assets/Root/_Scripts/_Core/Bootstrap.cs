@@ -2,6 +2,7 @@ using Root._Core._Locator;
 using Root._Services._Core;
 using Root._Services._GameBehavior;
 using Root._Services._SceneLoader;
+using Root._UI._Core;
 using System.Collections;
 
 namespace Root._Core
@@ -23,11 +24,11 @@ namespace Root._Core
 
             var sceneLoader = InitSceneLoader(serviceLocator);
 
-            yield return sceneLoader.LoadSceneAsync(SceneType.Bootstrap);
+            yield return sceneLoader.LoadSceneAsync(SceneType.Bootstrap, false);
 
-            serviceLocator.Register<IUpdater>(this);
+            InitGameBehavior(serviceLocator);
 
-            serviceLocator.Register<ICreator>(this);
+            InitUserInterface(serviceLocator);
 
             var game = new Game();
 
@@ -40,7 +41,7 @@ namespace Root._Core
         {
             if (_instance != null)
             {
-                Destroy(_instance);
+                Destroy(gameObject);
 
                 return false;
             }
@@ -61,6 +62,22 @@ namespace Root._Core
             serviceLocator.Register<ISceneLoader>(sceneLoader);
 
             return sceneLoader;
+        }
+
+        private void InitGameBehavior(Locator<IService> serviceLocator)
+        {
+            serviceLocator.Register<IUpdater>(this);
+
+            serviceLocator.Register<ICreator>(this);
+        }
+
+        private void InitUserInterface(Locator<IService> serviceLocator)
+        {
+            var ui = new UserInterface();
+
+            ui.Init(serviceLocator);
+
+            serviceLocator.Register(ui);
         }
     }
 }

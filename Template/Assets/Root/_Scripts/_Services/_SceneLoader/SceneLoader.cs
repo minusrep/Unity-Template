@@ -1,44 +1,52 @@
-﻿using Root._Core._Locator;
+﻿using Root._Constants;
+using Root._Core._Locator;
 using Root._Services._Core;
 using System;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Root._Services._SceneLoader
 {
     public sealed class SceneLoader : Service, ISceneLoader
     {
-        public event Action OnSceneLoadEvent; 
+        public event Action OnLoadEvent; 
 
-        public event Action OnSceneLoadingEvent;
+        public event Action<float> OnLoadingEvent;
 
-        public event Action OnSceneLoadedEvent;
-
-        public float Progress { get; private set; }
+        public event Action OnLoadedEvent;
 
         public override void Init(ILocator<IService> services)
         {
 
         }
 
-        public IEnumerator LoadSceneAsync(SceneType scene, Action callback = null)
+        public IEnumerator LoadSceneAsync(SceneType scene, bool delay = true, Action callback = null)
         {
             var index = (int) scene;
 
             var operation = SceneManager.LoadSceneAsync(index);
 
-            OnSceneLoadEvent?.Invoke();
+            OnLoadEvent?.Invoke();
 
-            while (!operation.isDone)
+            var timer = 0.01f;
+
+            if (delay) timer = GameConstants.LoadingDelay;
+
+            var current = timer;
+
+            while (!operation.isDone || current > 0f)
             {
-                Progress = operation.progress;
+                var progress = delay ? (timer - current) / timer : operation.progress;
 
-                OnSceneLoadingEvent?.Invoke();
+                current -= Time.deltaTime;
+
+                OnLoadingEvent?.Invoke(progress);
 
                 yield return null;
             }
 
-            OnSceneLoadedEvent?.Invoke();
+            OnLoadedEvent?.Invoke();
 
             callback?.Invoke();
         }
