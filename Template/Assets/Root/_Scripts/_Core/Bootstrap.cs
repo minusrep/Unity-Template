@@ -1,12 +1,12 @@
 using Root._Core._Locator;
 using Root._Services._Core;
+using Root._Services._GameBehavior;
 using Root._Services._SceneLoader;
 using System.Collections;
-using UnityEngine;
 
 namespace Root._Core
 {
-    public class Bootstrap : MonoBehaviour
+    public class Bootstrap : GameBehavior
     {
         private static Bootstrap _instance;
 
@@ -21,9 +21,13 @@ namespace Root._Core
 
             var serviceLocator = new Locator<IService>();
 
-           var sceneLoader = InitSceneLoader(serviceLocator);
+            var sceneLoader = InitSceneLoader(serviceLocator);
 
             yield return sceneLoader.LoadSceneAsync(SceneType.Bootstrap);
+
+            serviceLocator.Register<IUpdater>(this);
+
+            serviceLocator.Register<ICreator>(this);
 
             var game = new Game();
 

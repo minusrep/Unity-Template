@@ -8,6 +8,8 @@ namespace Root._Services._SceneLoader
 {
     public sealed class SceneLoader : Service, ISceneLoader
     {
+        public event Action OnSceneLoadEvent; 
+
         public event Action OnSceneLoadingEvent;
 
         public event Action OnSceneLoadedEvent;
@@ -25,11 +27,13 @@ namespace Root._Services._SceneLoader
 
             var operation = SceneManager.LoadSceneAsync(index);
 
-            OnSceneLoadingEvent?.Invoke();
+            OnSceneLoadEvent?.Invoke();
 
             while (!operation.isDone)
             {
                 Progress = operation.progress;
+
+                OnSceneLoadingEvent?.Invoke();
 
                 yield return null;
             }
