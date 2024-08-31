@@ -23,12 +23,12 @@ namespace Root._UI._Elements
             _root = root;
         }
         
-        public void Show()
+        public virtual void Show()
         {
             IsActive = true;
         }
 
-        public void Hide()
+        public virtual void Hide()
         {
             IsActive = false;
         }
