@@ -1,7 +1,6 @@
-﻿using Root._Core._Locator;
-using Root._Services._Core;
+﻿using Root.Services;
 
-namespace Root._Core
+namespace Root.Core
 {
     public interface IGame
     {
