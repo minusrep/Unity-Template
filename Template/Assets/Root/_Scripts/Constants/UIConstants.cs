@@ -6,6 +6,8 @@
 
         public const string Content = "content";
 
-        public const float WindowAppearTime = 0.5f;
+        public const float WindowAppearTime = 0.1f;
+
+        public const float WindowAppearFrom = 1.025f;
     }
 }

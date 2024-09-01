@@ -44,7 +44,7 @@ namespace Root.Services.UI.Elements.Windows
 
         public override void Show()
         {
-            _content.transform.scale = Vector3.one * 1.5f;
+            _content.transform.scale = UIConstants.WindowAppearFrom * Vector3.one;
 
             IsActive = true;
 
