@@ -31,6 +31,9 @@ namespace Root.Services.Audio
             _sounds = CreateSource(ServicesConstants.Sounds);
         }
 
+        public void PlayOneShot(AudioClip clip) 
+            => _sounds.AudioSource.PlayOneShot(clip);
+
         private Source CreateSource(string name = "")
         {
             var source = new Source();

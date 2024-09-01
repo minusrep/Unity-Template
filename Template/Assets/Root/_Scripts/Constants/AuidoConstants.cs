@@ -1,6 +1,6 @@
 ﻿namespace Root.Constants
 {
-    public static class GameConstants
+    public static class AuidoConstants
     {
 
     }

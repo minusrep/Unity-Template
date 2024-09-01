@@ -1,4 +1,5 @@
 using Root.Services;
+using Root.Services.Audio;
 using System.Collections;
 
 namespace Root.Core
@@ -25,6 +26,8 @@ namespace Root.Core
             InitGameBehavior(serviceLocator);
 
             InitUserInterface(serviceLocator);
+
+            InitAudioSystem(serviceLocator);
 
             var game = new Game();
 
@@ -73,7 +76,16 @@ namespace Root.Core
 
             ui.Init(serviceLocator);
 
-            serviceLocator.Register(ui);
+            serviceLocator.Register<IUserInterface>(ui);
+        }
+
+        private void InitAudioSystem(Locator<IService> serviceLocator)
+        {
+            var audio = new AudioSystem();
+
+            audio.Init(serviceLocator);
+
+            serviceLocator.Register<IAudio>(audio);
         }
     }
 }

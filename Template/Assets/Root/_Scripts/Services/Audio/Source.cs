@@ -9,23 +9,23 @@ namespace Root.Services.Audio
 
         public bool Mute
         {
-            get => _source.mute;
+            get => AudioSource.mute;
 
             set
             {
-                _source.mute = value;
+                AudioSource.mute = value;
 
                 OnMuteChangeEvent?.Invoke(value);
             }
         }
 
-        private AudioSource _source;
+        public AudioSource AudioSource { get; private set; }
 
         public void Init(Transform parent, string name)
         {
-            _source = new GameObject(name).AddComponent<AudioSource>();
+            AudioSource = new GameObject(name).AddComponent<AudioSource>();
 
-            _source.transform.parent = parent;
+            AudioSource.transform.parent = parent;
         }
     }
 }

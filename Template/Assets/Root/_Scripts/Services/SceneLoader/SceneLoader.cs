@@ -30,7 +30,7 @@ namespace Root.Services
 
             var timer = 0.01f;
 
-            if (delay) timer = GameConstants.LoadingDelay;
+            if (delay) timer = ServicesConstants.LoadingDelay;
 
             var current = timer;
 

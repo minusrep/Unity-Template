@@ -7,5 +7,6 @@ namespace Root.Services.Audio
         event Action<bool> OnMuteChangeEvent;
 
         bool Mute { get; set; }
+
     }
 }
