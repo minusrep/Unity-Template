@@ -1,5 +1,6 @@
 using Root.Services;
 using Root.Services.Audio;
+using Root.Services.SDK;
 using System.Collections;
 
 namespace Root.Core
@@ -22,6 +23,8 @@ namespace Root.Core
             var sceneLoader = InitSceneLoader(serviceLocator);
 
             yield return sceneLoader.LoadSceneAsync(SceneType.Bootstrap, false);
+
+            yield return InitSDK(serviceLocator);
 
             InitGameBehavior(serviceLocator);
 
@@ -84,6 +87,17 @@ namespace Root.Core
             audio.Init(serviceLocator);
 
             serviceLocator.Register<IAudio>(audio);
+        }
+
+        private IEnumerator InitSDK(Locator<IService> serviceLocator)
+        {
+            var sdk = new SDK();
+
+            yield return sdk.Init();
+
+            serviceLocator.Register<IAdvertisement>(sdk.Strategy.Advertisement);
+
+            serviceLocator.Register<IDataHandler>(sdk.Strategy.DataHandler);
         }
     }
 }

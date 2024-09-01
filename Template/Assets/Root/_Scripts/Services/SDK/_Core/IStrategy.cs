@@ -2,5 +2,8 @@
 {
     public interface IStrategy
     {
+        IDataHandler DataHandler { get; }
+
+        IAdvertisement Advertisement { get; }
     }
 }

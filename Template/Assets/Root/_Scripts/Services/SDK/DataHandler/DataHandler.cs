@@ -1,34 +1,35 @@
-﻿using Root.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Root.Services
+namespace Root.Services.SDK
 {
-    public class DataHandler : IDataHandler, IServiceViewer
+    public class DataHandler : IDataHandler
     {
+        public bool IsInitialized => Data != null;
+
         public Data Data { get; private set; }
 
         private Dictionary<Type, IEntityData> _dataMap;
 
-        public void Init(ILocator<IService> services)
-        {
+        private Action _save;
 
-        }
-
-        public void InitData(Data data)
+        public void Init(Data data, Action save = null)
         {
-            Data = data != null ? data : new Data()
-            {
-                PlayerData = new PlayerData(),
-            };
+            Data = data != null ? data : new Data();
 
             _dataMap = new Dictionary<Type, IEntityData>()
             {
                 {Data.PlayerData.GetType(), Data.PlayerData},
             };
+
+            _save = save;
         }
+
+        public void Save()
+            => _save.Invoke();
 
         public T GetData<T>() where T : IEntityData 
             => (T) _dataMap[typeof(T)];
+
     }
 }

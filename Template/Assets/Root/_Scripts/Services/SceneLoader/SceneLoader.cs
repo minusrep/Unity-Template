@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Root.Core;
 using Root.Constants;
 
 namespace Root.Services

@@ -6,5 +6,10 @@ namespace Root.Services
     public class Data
     {
         public PlayerData PlayerData;
+
+        public Data()
+        {
+            PlayerData = new PlayerData();
+        }
     }
 }
