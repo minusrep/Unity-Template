@@ -56,8 +56,6 @@ namespace Root.Core
         {
             var sceneLoader = new SceneLoader();
 
-            sceneLoader.Init(serviceLocator);
-
             serviceLocator.Register<ISceneLoader>(sceneLoader);
 
             return sceneLoader;

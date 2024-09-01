@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Root.Services.Audio
 {
-    public class AudioSystem : Service, IAudio
+    public class AudioSystem : IAudio, IServiceViewer
     {
         public ISource Music => _music;
 
@@ -18,21 +18,26 @@ namespace Root.Services.Audio
 
         private GameObject _root;
 
-        public override void Init(ILocator<IService> services)
+        public void Init(ILocator<IService> services)
         {
             _creator = services.Get<ICreator>();
 
-            _root = new GameObject(ServicesConstants.Audio);
+            CreateRoot();
 
-            _creator.Static(_root);
+            _music = CreateSource(AudioConstants.Music);
 
-            _music = CreateSource(ServicesConstants.Music);
-
-            _sounds = CreateSource(ServicesConstants.Sounds);
+            _sounds = CreateSource(AudioConstants.Sounds);
         }
 
         public void PlayOneShot(AudioClip clip) 
             => _sounds.AudioSource.PlayOneShot(clip);
+
+        private void CreateRoot()
+        {
+            _root = new GameObject(AudioConstants.Audio);
+
+            _creator.Static(_root);
+        }
 
         private Source CreateSource(string name = "")
         {

@@ -7,18 +7,13 @@ using Root.Constants;
 
 namespace Root.Services
 {
-    public sealed class SceneLoader : Service, ISceneLoader
+    public sealed class SceneLoader : ISceneLoader
     {
         public event Action OnLoadEvent; 
 
         public event Action<float> OnLoadingEvent;
 
         public event Action OnLoadedEvent;
-
-        public override void Init(ILocator<IService> services)
-        {
-
-        }
 
         public IEnumerator LoadSceneAsync(SceneType scene, bool delay = true, Action callback = null)
         {

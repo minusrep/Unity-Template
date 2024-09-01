@@ -3,11 +3,11 @@ using Root.Services.UI.Elements.Windows;
 
 namespace Root.Services
 {
-    public class UserInterface : Service, IUserInterface
+    public class UserInterface : IUserInterface, IServiceViewer
     {
         private UILoadingScreenWindow _loadingScreen;
 
-        public override void Init(ILocator<IService> services)
+        public void Init(ILocator<IService> services)
         {
             _loadingScreen = new UILoadingScreenWindow();
 
