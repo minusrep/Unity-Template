@@ -42,7 +42,6 @@ namespace Root.Services.SDK
 
         #endregion
 
-
         private ICreator _creator;
 
         private JSProvider _jsProvider;

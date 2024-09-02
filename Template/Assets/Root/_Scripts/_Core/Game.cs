@@ -7,6 +7,8 @@ namespace Root.Core
     {
         public ILocator<IService> ServiceLocator { get; private set; }
 
+        private Session _actualSession;
+
         public void Init(ILocator<IService> serviceLocator)
         {
             ServiceLocator = serviceLocator;
@@ -14,9 +16,9 @@ namespace Root.Core
 
         public IEnumerator Run()
         {
-            var sceneLoader = ServiceLocator.Get<ISceneLoader>();
+            _actualSession = new Session();
 
-            yield return sceneLoader.LoadSceneAsync(SceneType.Game);
+            yield return _actualSession.Run();
         }
     }
 }
