@@ -3,7 +3,7 @@ using Root.Services.UI.Elements.Windows;
 
 namespace Root.Services
 {
-    public class UserInterface : IUserInterface, IServiceViewer
+    public class GUI : IGUI, IServiceUser
     {
         private UILoadingScreenWindow _loadingScreen;
 

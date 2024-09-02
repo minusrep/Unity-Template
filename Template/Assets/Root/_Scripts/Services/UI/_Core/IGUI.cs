@@ -2,7 +2,7 @@
 
 namespace Root.Services
 {
-    public interface IUserInterface : IService
+    public interface IGUI : IService
     {
 
     }

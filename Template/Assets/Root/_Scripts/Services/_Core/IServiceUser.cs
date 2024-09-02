@@ -2,7 +2,7 @@
 
 namespace Root.Services
 {
-    public interface IServiceViewer
+    public interface IServiceUser
     {
         void Init(ILocator<IService> services);
     }

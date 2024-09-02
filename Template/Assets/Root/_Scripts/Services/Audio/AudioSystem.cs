@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Root.Services.Audio
 {
-    public class AudioSystem : IAudio, IServiceViewer
+    public class AudioSystem : IAudio, IServiceUser
     {
         public ISource Music => _music;
 

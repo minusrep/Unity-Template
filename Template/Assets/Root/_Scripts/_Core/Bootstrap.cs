@@ -73,11 +73,11 @@ namespace Root.Core
 
         private void InitUserInterface(Locator<IService> serviceLocator)
         {
-            var ui = new UserInterface();
+            var ui = new GUI();
 
             ui.Init(serviceLocator);
 
-            serviceLocator.Register<IUserInterface>(ui);
+            serviceLocator.Register<IGUI>(ui);
         }
 
         private void InitAudioSystem(Locator<IService> serviceLocator)
