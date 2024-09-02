@@ -31,10 +31,16 @@ namespace Root
             if (controller is IControllerUser)
                 InitControllerUser(controller as IControllerUser);
 
+            if (controller is IServiceUser)
+                InitServiceUser(controller as IServiceUser);
+
             _controllers.Register<T>(controller);
         }
 
         private void InitControllerUser<T>(T controller) where T : IControllerUser
             => controller.Init(_controllers);
+
+        private void InitServiceUser<T>(T controller) where T : IServiceUser
+            => controller.Init(_services);
     }
 }

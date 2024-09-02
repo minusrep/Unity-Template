@@ -6,6 +6,7 @@ namespace Root.Demo
     {
         public void Init(ILocator<IController> controllers)
         {
+
         }
     }
 }

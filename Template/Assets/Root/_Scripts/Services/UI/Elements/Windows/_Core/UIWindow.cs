@@ -8,7 +8,7 @@ namespace Root.Services.UI.Elements.Windows
 {
     public abstract class UIWindow : UIElement<VisualElement>
     {
-        public virtual string Name { get; protected set; }
+        public virtual string Name { get; }
 
         protected UIDocument _document;
 
