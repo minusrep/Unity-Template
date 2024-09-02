@@ -30,5 +30,13 @@ namespace Root.Services.SDK
 
             OnAdvCloseEvent.Invoke();
         }
+
+        public void OnAdvOpen()
+            => OnAdvOpenEvent?.Invoke();
+        public void OnAdvRewarded(int id = 0)
+            => OnAdvRewardedEvent?.Invoke(id);
+
+        public void OnAdvClose()
+            => OnAdvCloseEvent?.Invoke();
     }
 }

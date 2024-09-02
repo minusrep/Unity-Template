@@ -1,19 +1,25 @@
 ﻿using Root.Constants;
+using Root.Core;
 using System.Collections;
 using System.IO;
 using UnityEngine;
 
 namespace Root.Services.SDK
 {
-    public class UnityStrategy : IStrategy
+    public class UnityStrategy : IStrategy, IServiceUser
     {
         public IDataHandler DataHandler => _dataHandler;
 
         public IAdvertisement Advertisement => _advertisement;
         
-        private DataHandler _dataHandler;
+        protected DataHandler _dataHandler;
 
-        private Advertisement _advertisement;
+        protected Advertisement _advertisement;
+
+        public virtual void Init(ILocator<IService> services)
+        {
+            
+        }
 
         public IEnumerator Init() 
         {
@@ -26,17 +32,19 @@ namespace Root.Services.SDK
             yield return new WaitUntil(() => _dataHandler.IsInitialized);
         }
 
-        protected virtual void InitAdvertisement() 
-            => _advertisement = new Advertisement();
-
         protected virtual void LoadData()
         {
             var data = File.Exists(AssetsConstants.SavePath) ? JsonUtility.FromJson<Data>(File.ReadAllText(AssetsConstants.SavePath)) : new Data();
 
-            _dataHandler.Init(data, SaveData);
+            _dataHandler.Init(SaveData);
+
+            _dataHandler.InitData(data);
         }
 
         protected virtual void SaveData() 
             => File.WriteAllText(AssetsConstants.SavePath, JsonUtility.ToJson(_dataHandler.Data));
+
+        private void InitAdvertisement()
+            => _advertisement = new Advertisement();
     }
 }

@@ -5,14 +5,14 @@
       ysdk.adv.showFullscreenAdv({
         callbacks: {
           onOpen: () => {
-            gameInstance.SendMessage('YandexSDK', 'OnAdvShow');
+            gameInstance.SendMessage('JSProvider', 'OnAdvShow');
           },
           onClose: function(wasShown) {
-            gameInstance.SendMessage('YandexSDK', 'OnAdvClose');
+            gameInstance.SendMessage('JSProvider', 'OnAdvClose');
           },
           onError: function(error) {
           // some action on error
-            gameInstance.SendMessage('YandexSDK', 'OnAdvClose');
+            gameInstance.SendMessage('JSProvider', 'OnAdvClose');
           }
         }
       })
@@ -32,41 +32,21 @@
       })
     },
 
-    ShowRewardedAdvExtern: function(){
+    ShowRewardedAdvExtern: function(id){
       ysdk.adv.showRewardedVideo({
         callbacks: {
           onOpen: () => {
-            gameInstance.SendMessage('YandexSDK', 'OnAdvShow');
+            gameInstance.SendMessage('JSProvider', 'OnAdvShow');
           },
           onRewarded: () => {
-            gameInstance.SendMessage('YandexSDK', 'OnRewarded');
+            gameInstance.SendMessage('JSProvider', 'OnRewarded', id);
           },
           onClose: () => {
-            gameInstance.SendMessage('YandexSDK', 'OnAdvClose');
+            gameInstance.SendMessage('JSProvider', 'OnAdvClose');
             console.log('Video ad closed.');
           }, 
           onError: (e) => {
-            gameInstance.SendMessage('YandexSDK', 'OnAdvClose');  
-            console.log('Error while open video ad:', e);
-          }
-        }
-      })
-    },
-        ShowDoubleRewardedAdvExtern: function(){
-      ysdk.adv.showRewardedVideo({
-        callbacks: {
-          onOpen: () => {
-            gameInstance.SendMessage('YandexSDK', 'OnAdvShow');
-          },
-          onRewarded: () => {
-            gameInstance.SendMessage('YandexSDK', 'OnDoubleRewarded');
-          },
-          onClose: () => {
-            gameInstance.SendMessage('YandexSDK', 'OnAdvClose');
-            console.log('Video ad closed.');
-          }, 
-          onError: (e) => {
-
+            gameInstance.SendMessage('JSProvider', 'OnAdvClose');  
             console.log('Error while open video ad:', e);
           }
         }
@@ -89,7 +69,7 @@
 
       player.getData().then(_data => {
         const myJSON = JSON.stringify(_data);
-        gameInstance.SendMessage('YandexSDK','InitData', myJSON);
+        gameInstance.SendMessage('JSProvider','InitData', myJSON);
       });
     },
 

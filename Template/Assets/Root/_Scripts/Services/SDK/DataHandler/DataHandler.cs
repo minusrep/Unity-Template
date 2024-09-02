@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Root.Services.SDK
 {
@@ -13,7 +14,13 @@ namespace Root.Services.SDK
 
         private Action _save;
 
-        public void Init(Data data, Action save = null)
+        public void Init(Action save = null) 
+            => _save = save;
+
+        public void InitData(string data) 
+            => InitData(JsonUtility.FromJson<Data>(data));
+
+        public void InitData(Data data)
         {
             Data = data != null ? data : new Data();
 
@@ -21,8 +28,6 @@ namespace Root.Services.SDK
             {
                 {Data.PlayerData.GetType(), Data.PlayerData},
             };
-
-            _save = save;
         }
 
         public void Save()
