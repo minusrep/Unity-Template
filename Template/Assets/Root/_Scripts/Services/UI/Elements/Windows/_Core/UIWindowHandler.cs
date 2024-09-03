@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Root.Services.UI
 {
-    public abstract class UIWindowsHandler : IWindowManipulator, IServiceUser
+    public abstract class UIWindowHandler : IWindowManipulator, IServiceUser
     {
         protected ILocator<IService> _services;
 
@@ -16,7 +16,7 @@ namespace Root.Services.UI
 
         private UIWindow _previous;
 
-        public UIWindowsHandler()
+        public UIWindowHandler()
         {
             _windows = new List<UIWindow>();
         }

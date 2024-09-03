@@ -18,6 +18,8 @@ namespace Root.Core
         {
             _actualSession = new Session();
 
+            _actualSession.Init(ServiceLocator);
+
             yield return _actualSession.Run();
         }
     }

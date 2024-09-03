@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Root/UI/Styles/Default-Button.uss?fileID=7433441132597879392&amp;guid=1f61c40d94ae9d84dbc8b1dba4512e6a&amp;type=3#Default-Button" />
+    <ui:VisualElement name="root" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="content" style="background-image: url(&quot;project://database/Assets/Root/Graphics/Sprites/Gradients/gradient_0.png?fileID=21300000&amp;guid=30ae47e557f14504a830258023db0229&amp;type=3#gradient_0&quot;); -unity-background-image-tint-color: rgb(24, 24, 24); -unity-background-scale-mode: scale-and-crop; justify-content: flex-start; flex-grow: 1; flex-direction: column;">
+            <ui:VisualElement name="buttons" style="flex-grow: 1; align-self: center; background-color: rgba(34, 34, 34, 0.69); height: 100%; width: 720px; justify-content: space-around;">
+                <ui:Label tabindex="-1" text="Main" parse-escape-sequences="true" display-tooltip-when-elided="true" name="title" style="-unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/Plugins/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=985d1c20b96f3e64ca504ce6d9df6252&amp;type=3#NotInter-Regular&quot;); font-size: 80px; color: rgb(255, 255, 255); align-self: center; -unity-text-align: middle-center; -unity-font-style: bold; background-color: rgba(14, 14, 14, 0.93); width: 640px; height: 120px; overflow: hidden;" />
+                <ui:VisualElement name="space" style="flex-grow: 0; width: 640px; height: 120px; align-self: center;" />
+                <ui:VisualElement name="space" style="flex-grow: 0; width: 640px; height: 120px; align-self: center;" />
+                <ui:Label tabindex="-1" text="10.0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="value" style="-unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/Plugins/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=985d1c20b96f3e64ca504ce6d9df6252&amp;type=3#NotInter-Regular&quot;); font-size: 80px; color: rgb(255, 255, 255); align-self: center; -unity-text-align: middle-center; -unity-font-style: normal; background-color: rgba(14, 14, 14, 0.93); width: 640px; height: 120px; overflow: hidden;" />
+                <ui:VisualElement name="controls" style="flex-grow: 0; width: 640px; height: 120px; align-self: center; flex-direction: row;">
+                    <ui:Button text="-" parse-escape-sequences="true" display-tooltip-when-elided="true" name="remove-button" class="default-button" style="flex-shrink: 1;" />
+                    <ui:Button text="+" parse-escape-sequences="true" display-tooltip-when-elided="true" name="add-button" class="default-button" style="flex-shrink: 1;" />
+                </ui:VisualElement>
+                <ui:Button text="SAVE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="save-button" class="default-button" />
+                <ui:Button text="NEXT" parse-escape-sequences="true" display-tooltip-when-elided="true" name="next-window-button" class="default-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
