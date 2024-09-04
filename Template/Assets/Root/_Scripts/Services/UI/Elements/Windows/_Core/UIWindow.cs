@@ -8,7 +8,6 @@ namespace Root.Services.UI.Elements.Windows
 {
     public abstract class UIWindow : UIElement<VisualElement>
     {
-        // comment
         public abstract string Name { get; }
 
         protected UIDocument _document;
