@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6047365938950355468}
   - component: {fileID: 8909574569924991139}
+  - component: {fileID: 1105559217999199764}
+  - component: {fileID: 8037474970392807696}
   m_Layer: 5
   m_Name: LoadingScreen
   m_TagString: Untagged
@@ -48,3 +50,73 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: e0f6019e0ac80d34091ae6a6c2ac99c6, type: 3}
   m_SortingOrder: 64000
+--- !u!114 &1105559217999199764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5114002486092985358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 723acc99520e883419c8efdfe4b1e3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table:
+    m_TableReference:
+      m_TableCollectionName: GUID:eeb42ba716a9f2d49ae53d12bf1d5fc1
+--- !u!114 &8037474970392807696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5114002486092985358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects:
+  - rid: 1669674504293974018
+  references:
+    version: 2
+    RefIds:
+    - rid: 1669674504293974018
+      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 1105559217999199764}
+        m_TrackedProperties:
+          items:
+          - rid: 1669674504293974019
+          - rid: 1669674504293974021
+        m_UpdateType: 0
+        m_Changed:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 1669674504293974019
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: GUID:eeb42ba716a9f2d49ae53d12bf1d5fc1
+          m_TableEntryReference:
+            m_KeyId: 257016134795264
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: _table.m_TableReference.m_TableCollectionName
+    - rid: 1669674504293974021
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: GUID:eeb42ba716a9f2d49ae53d12bf1d5fc1
+          m_TableEntryReference:
+            m_KeyId: 266624609976320
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: table.m_TableReference.m_TableCollectionName

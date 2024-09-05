@@ -12,6 +12,12 @@
 
         public const string JSProvider = "JSProvider";
 
-        #endregion  
+        #endregion
+
+        #region Localization
+
+        public const string StringTable = "Texts";
+
+        #endregion
     }
 }
