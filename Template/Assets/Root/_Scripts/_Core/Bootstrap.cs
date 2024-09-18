@@ -26,6 +26,8 @@ namespace Root.Core
 
             yield return InitSDK(serviceLocator);
 
+            yield return InitLocalization(serviceLocator);
+
             InitGameBehavior(serviceLocator);
 
             InitUserInterface(serviceLocator);
@@ -98,6 +100,15 @@ namespace Root.Core
             serviceLocator.Register<IAdvertisement>(sdk.Strategy.Advertisement);
 
             serviceLocator.Register<IDataHandler>(sdk.Strategy.DataHandler);
+        }
+
+        private IEnumerator InitLocalization(Locator<IService> serviceLocator)
+        {
+            var localization = new LocalizationSystem();
+
+            yield return localization.Init();
+
+            serviceLocator.Register<ILocalization>(localization);
         }
     }
 }

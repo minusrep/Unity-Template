@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Root/UI/Styles/Core.uss?fileID=7433441132597879392&amp;guid=47c7fefce93e6ed408f9ecbd3332f06f&amp;type=3#Core" />
+    <ui:VisualElement name="root" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="content" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Root/Graphics/Sprites/Gradients/gradient_0.png?fileID=21300000&amp;guid=30ae47e557f14504a830258023db0229&amp;type=3#gradient_0&quot;); -unity-background-image-tint-color: rgb(48, 63, 152); -unity-background-scale-mode: scale-and-crop; justify-content: space-around;">
+            <ui:VisualElement name="logo" style="flex-grow: 0;">
+                <ui:Label tabindex="-1" text="#Hello" parse-escape-sequences="true" display-tooltip-when-elided="true" name="title" style="-unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/Root/Graphics/Fonts/lilitaonerus.ttf?fileID=12800000&amp;guid=444293869e06e9f408ddeb463e548ea1&amp;type=3#lilitaonerus&quot;); font-size: 120px; -unity-text-align: upper-center; color: rgb(255, 160, 37); text-shadow: 0 8px 0 rgb(31, 20, 5); flex-shrink: 1;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
